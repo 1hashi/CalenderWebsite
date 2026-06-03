@@ -8,6 +8,249 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <button>click to goon</button>
+        <div class="page-wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-logo">
+                     <span class="title">Reken dingetje</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content container container--sm">
+
+                <section class="card card--jade mb-4">
+                    <div class="card-header">
+                        <span class="card-label">Balans en Spaardoel</span>
+                    </div>
+
+                    <div class="grid-2 mb-3">
+                        <div class="form-group">
+                            <label class="form-label" for="gaiaHuidig">Gaia Bankrekening</label>
+                            <div class="input-group">
+                                <span class="addon">€</span>
+                                <input type="number" id="gaiaHuidig" class="form-input" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form=group">
+                            <label class="form-label" for="maartenHuidig">Maarten Bankrekening</label>
+                            <div class="input-group">
+                                <span class="addon">€</span>
+                                <input type="number" id="maartenHuidig" class="form-input" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="gaiaSpaar">Gaia Spaarrekening</label>
+                            <div class="input-group">
+                                <span class="addon">€</span>
+                                <input type="number" id="gaiaSpaar" class="form-input" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="maartenSpaar">Maarten Spaarrekening</label>
+                            <div class="input-group">
+                                <span class="addon">€</span>
+                                <input type="number" id="maartenSpaar" class="form-input" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="spaarDoel">Spaardoel</label>
+                            <div class="input-group">
+                                <span class="addon">€</span>
+                                <input type="number" id="spaarDoel" class="form-input" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="deadlineSpaarDoel">Maanden tot doel</label>
+                            <input type="number" id="deadlineSpaarDoel" class="form-input" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="alert alert--jade mt-3">
+                        <!-- TODO nog ff berekening maken -->
+                        <p class="mb-0">Spaar per maand: <strong id="outputSpaarPerMaand">...</strong></p>
+                    </div>
+                </section>
+
+                <section class="card mb-4">
+                    <div class="card-header">
+                        <span class="card-label dim">Inkomsten</span>
+                    </div>
+
+                    <div class="grid-2 mb-3">
+                        <div class="form-group">
+                            <label class="form-label" for="maartenBaan1">Baan 1 Maarten</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan1" class="form-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="maartenBaan2">Baan 2 Maarten</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan2" class="form-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="gaiaBaan">Baan Gaia</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaBaan" class="form-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="maartenDuo">Duo Maarten</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenDuo" class="form-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="gaiaDuo">Duo Gaia</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaDuo" class="form-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="zorgtoeslag">Zorgtoeslag</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" id="zorgtoeslag" class="form-input" placeholder="0.00"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card dim">
+                        <div class="stat-card__label">Totale Inkomsten</div>
+                        <div class="stat-card__value" id="outputTotaleInkomsten">€ 0,00</div>
+                    </div>
+                </section>
+
+                <section class="card card--rose mb-4">
+                    <div class="card-header">
+                        <span class="card-label rose">Vaste Lasten & Kosten</span>
+                    </div>
+                    
+                    <div id="kostenContainer" class="grid-2 mb-3">
+                        <div class="form-group">
+                            <label class="form-label">School</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Zorgverzekering</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Basic fit</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ANWB</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Discord</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pathe</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Auto (naar Gilbert)</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Spotify</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Wegenbelasting</label>
+                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
+                        </div>
+                    </div>
+
+                    <button id="voegKostToeBtn" class="btn btn--rose mb-3">
+                          + Extra kosten toevoegen
+                    </button>
+
+                    <div class="stat-card rose">
+                        <div class="stat-card__label">Totale Kosten</div>
+                        <div class="stat-card__value rose" id="outputTotaleKosten">€ 0,00</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <!-- <label for="gaiaHuidig">Gaia nu op bankrekening: </label>
+        <input type="text" id="gaiaHuidig" name="gaiaHuidig">
+        <br>
+        <label for="maartenHuidig">Maarten nu op bankrekening: </label>
+        <input type="text" id="maartenHuidig" name="maartenHuidig">
+        <br>
+        <label for="gaiaSpaar">Gaia nu op spaarrekening: </label>
+        <input type="text" id="gaiaSpaar" name="gaiaSpaar">
+        <br>
+        <label for="maartenSpaar">Maarten nu op spaarrekening: </label>
+        <input type="text" id="maartenSpaar" name="maartenSpaar">
+        <br>
+        <label for="totaalHuidig">Totaal nu op de bankrekeningen: </label>
+        <input type="text" id="totaalHuidig" name="totaalHuidig">
+        <br>
+        <label for="totaalSpaar">Totaal nu op de spaarrekeningen: </label>
+        <input type="text" id="totaalSpaar" name="totaalSpaar">
+        <br>
+        <label for="spaarDoel">Spaar doel: </label>
+        <input type="text" id="spaarDoel" name="spaarDoel">
+        <br>
+        <label for="deadlineSpaarDoel">Nog hoeveel maanden tot spaardoel behaald moet zijn?: </label>
+        <input type="text" id="deadlineSpaarDoel" name="deadlineSpaarDoel">
+        <br>
+        <p>spaardoel-totaalspaar=spaarpermaand</p>
+        <br>
+        <p>spaarpermaand</p>
+        <br>
+        <h1>Inkomsten</h1>
+        <br>
+        <label for="maartenBaan1">Baan 1 Maarten: </label>
+        <input type="text" id="maartenBaan1" name="maartenBaan1">
+        <br>
+        <label for="maartenBaan2">Baan 2 Maarten: </label>
+        <input type="text" id="maartenBaan2" name="maartenBaan2">
+        <br>
+        <label for="gaiaBaan">Baan Gaia: </label>
+        <input type="text" id="gaiaBaan" name="gaiaBaan">
+        <br>
+        <label for="maartenDuo">Duo Maarten: </label>
+        <input type="text" id="maartenDuo" name="maartenDuo">
+        <br>
+        <label for="gaiaDuo">Duo Gaia: </label>
+        <input type="text" id="gaiaDuo" name="gaiaDuo">
+        <br>
+        <label for="zorgtoeslag">Zorgtoeslag: </label>
+        <input type="text" id="zorgtoeslag" name="zorgtoeslag">
+        <br>
+        <p>alle inkomsten + elkaar=totale inkomsten</p>
+        <br>
+        <p>totale inkomsten</p>
+        <br>
+        <label for="school">School: </label>
+        <input type="text" id="school" name="school">
+        <br>
+        <label for="zorgverzekering">Zorgverzekering: </label>
+        <input type="text" id="zorgverzekering" name="zorgverzekering">
+        <br>
+        <label for="pathe">Pathe: </label>
+        <input type="text" id="pathe" name="pathe">
+        <br>
+        <label for="discord">Discord: </label>
+        <input type="text" id="discord" name="discord">
+        <br>
+        <label for="anwb">ANWB: </label>
+        <input type="text" id="anwb" name="anwb">
+        <br>
+        <label for="basicFit">Basic Fit: </label>
+        <input type="text" id="basicFit" name="basicFit">
+        <br>
+        <label for="auto">Auto: </label>
+        <input type="text" id="auto" name="auto">
+        <br>
+        <label for="wegenbelasting">Wegenbelasting: </label>
+        <input type="text" id="wegenbelasting" name="wegenbelasting">
+        <br>
+        <label for="spotify">Spotify: </label>
+        <input type="text" id="spotify" name="spotify">
+        <br>
+        <p>alle kosten + elkaar=totale kosten</p>
+        <br>
+        <p>totale kosten</p> -->
     </body>
 </html>
