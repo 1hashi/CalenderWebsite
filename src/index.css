@@ -275,3 +275,25 @@ strong, b { font-weight: 400; color: var(--txt); }
   .container { padding: 0 1rem; }
   .card      { padding: 1.1rem; }
 }
+
+/* Pas toepassen op desktops en tablets */
+@media (min-width: 769px) {
+  .main-layout {
+    display: grid;
+    /* De linkerkolom pakt alle restruimte (1fr), de rechterkolom heeft een vaste breedte */
+    grid-template-columns: 1fr 340px; 
+    gap: 2rem;
+    /* CRUCIAAL: align-items: start zorgt ervoor dat de rechterbox niet verticaal uitrekt, 
+       waardoor het sticky effect daadwerkelijk werkt */
+    align-items: start; 
+  }
+
+  .sticky-card {
+    position: sticky;
+    /* Ruimte vanaf de bovenkant van het scherm tijdens het scrollen. 
+       Aangezien je header al sticky is, zetten we deze er netjes onder (bijv. 5.5rem) */
+    top: 5.5rem; 
+    /* Zorgt ervoor dat hij boven eventuele achtergrondlaagjes blijft zweven */
+    z-index: 10; 
+  }
+}
