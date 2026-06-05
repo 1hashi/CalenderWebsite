@@ -17,16 +17,109 @@
                 </div>
             </header>
 
-            <main class="main-content container container--sm">
+            <main class="main-content container main-layout">
+                <div class="left-column">
+                    <section class="card mb-4">
+                        <div class="card-header">
+                            <span class="card-label dim">Inkomsten</span>
+                        </div>
 
-                <section class="card card--jade mb-4">
+                        <div class="grid-2 mb-3">
+                            <div class="form-group">
+                                <label class="form-label" id="maartenBaan1">Baan 1 Maarten</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan1" class="form-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" id="maartenBaan2">Baan 2 Maarten</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan2" class="form-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" id="gaiaBaan">Baan Gaia</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaBaan" class="form-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" id="maartenDuo">Duo Maarten</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="maartenDuo" class="form-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" id="gaiaDuo">Duo Gaia</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaDuo" class="form-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" id="zorgtoeslag">Zorgtoeslag</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="zorgtoeslag" class="form-input" placeholder="0.00"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card dim">
+                            <div class="stat-card__label">Totale Inkomsten</div>
+                            <div class="stat-card__value" id="outputTotaleInkomsten">${totaleInkomsten}</div>
+                        </div>
+                    </section>
+
+                    <section class="card card--rose mb-4">
+                        <div class="card-header">
+                            <span class="card-label rose">Vaste Lasten & Kosten</span>
+                        </div>
+                        
+                        <div id="kostenContainer" class="grid-2 mb-3">
+                            <div class="form-group">
+                                <label class="form-label">School</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="school" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Zorgverzekering</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="zorgverzekering" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Basic fit</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="basicFit" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ANWB</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="anwb" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Discord</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="discord" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Pathe</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="pathe" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Auto (naar Gilbert)</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="auto" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Spotify</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="spotify" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Wegenbelasting</label>
+                                <div class="input-group"><span class="addon">€</span><input type="number" id="wegenbelasting" class="form-input kost-input" placeholder="0.00"></div>
+                            </div>
+                        </div>
+
+                        <button id="voegKostToeBtn" class="btn btn--rose mb-3">
+                            + Extra kosten toevoegen
+                        </button>
+
+                        <div class="stat-card rose">
+                            <div class="stat-card__label">Totale Kosten</div>
+                            <div class="stat-card__value rose" id="outputTotaleKosten">€ 0,00</div>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="card card--jade mb-4 sticky-card">
                     <div class="card-header">
                         <span class="card-label">Balans en Spaardoel</span>
                     </div>
 
                     <div class="grid-2 mb-3">
                         <div class="form-group">
-                            <label class="form-label" for="gaiaHuidig">Gaia Bankrekening</label>
+                            <label class="form-label" for="gaiaHuidig">Gaia Bankrekening..</label>
                             <div class="input-group">
                                 <span class="addon">€</span>
                                 <input type="number" id="gaiaHuidig" class="form-input" placeholder="0.00">
@@ -54,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="divider"></div>
 
                     <div class="grid-2">
@@ -76,97 +169,6 @@
                         <p class="mb-0">Spaar per maand: <strong id="outputSpaarPerMaand">...</strong></p>
                     </div>
                 </section>
-
-                <section class="card mb-4">
-                    <div class="card-header">
-                        <span class="card-label dim">Inkomsten</span>
-                    </div>
-
-                    <div class="grid-2 mb-3">
-                        <div class="form-group">
-                            <label class="form-label" for="maartenBaan1">Baan 1 Maarten</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan1" class="form-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="maartenBaan2">Baan 2 Maarten</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan2" class="form-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="gaiaBaan">Baan Gaia</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaBaan" class="form-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="maartenDuo">Duo Maarten</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="maartenDuo" class="form-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="gaiaDuo">Duo Gaia</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaDuo" class="form-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="zorgtoeslag">Zorgtoeslag</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" id="zorgtoeslag" class="form-input" placeholder="0.00"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card dim">
-                        <div class="stat-card__label">Totale Inkomsten</div>
-                        <div class="stat-card__value" id="outputTotaleInkomsten">€ 0,00</div>
-                    </div>
-                </section>
-
-                <section class="card card--rose mb-4">
-                    <div class="card-header">
-                        <span class="card-label rose">Vaste Lasten & Kosten</span>
-                    </div>
-                    
-                    <div id="kostenContainer" class="grid-2 mb-3">
-                        <div class="form-group">
-                            <label class="form-label">School</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Zorgverzekering</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Basic fit</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">ANWB</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Discord</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Pathe</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Auto (naar Gilbert)</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Spotify</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Wegenbelasting</label>
-                            <div class="input-group"><span class="addon">€</span><input type="number" class="form-input kost-input" placeholder="0.00"></div>
-                        </div>
-                    </div>
-
-                    <button id="voegKostToeBtn" class="btn btn--rose mb-3">
-                          + Extra kosten toevoegen
-                    </button>
-
-                    <div class="stat-card rose">
-                        <div class="stat-card__label">Totale Kosten</div>
-                        <div class="stat-card__value rose" id="outputTotaleKosten">€ 0,00</div>
-                    </div>
                 </section>
             </main>
         </div>
