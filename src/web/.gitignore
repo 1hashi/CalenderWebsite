@@ -1,0 +1,4 @@
+node_modules/
+
+# add this when actual stuff gets added to the .env
+# .env

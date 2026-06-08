@@ -1,15 +1,27 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "esnext",
-        "rootDir": "./src",
-        "outDir": "./dist",
+        "target": "ES2017",
+        "experimentalDecorators": true,
+        "useDefineForClassFields": false,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
         "strict": true,
         "sourceMap": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
         "esModuleInterop": true,
-        "moduleResolution": "node",
-        "lib": ["DOM", "ES6"],
-        "skipLibCheck": true
+        "noEmit": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "skipLibCheck": true,
+        "lib": ["ESNext", "DOM"],
+        "paths": {
+            "@api/*": ["./src/api/src/*"],
+            "@shared/*": ["./src/shared/*"],
+            "@web/*": ["./src/web/src/*"],
+        },
     },
-    "include": ["src"]
+    "exclude": ["./node_modules"]
 }

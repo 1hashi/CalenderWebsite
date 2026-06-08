@@ -1,24 +1,21 @@
 {
-  "name": "calenderwebsite",
-  "version": "1.0.0",
-  "description": "test",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/1hashi/CalenderWebsite.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/1hashi/CalenderWebsite/issues"
-  },
-  "homepage": "https://github.com/1hashi/CalenderWebsite#readme",
-  "dependencies": {
-    "typescript": "^6.0.2"
-  }
+    "name": "calender-app",
+    "version": "1.0.0",
+    "private": true,
+    "engines": {
+        "node": "22"
+    },
+    "workspaces": [
+        "src/*"
+    ],
+    "devDependencies": {
+        "@types/node": "^22.x",
+        "node-mocks-http": "1.17.2",
+        "typedoc": "0.28.16",
+        "typescript": "5.9.3",
+        "vite-tsconfig-paths": "6.0.5"
+    },
+    "comments": {
+        "typescript": "Set to 5.7.3 because vite 7.1.5 doesn't officially support it yet!"
+    }
 }
