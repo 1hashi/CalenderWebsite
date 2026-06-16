@@ -5,6 +5,30 @@ class AddFinanceComponent extends HTMLElement {
         this.attachShadow({ mode: "open" });
 
         this.render();
+
+        const inputsIncome: HTMLInputElement[] = [
+            this.shadowRoot?.getElementById("maartenBaan1") as HTMLInputElement,
+            this.shadowRoot?.getElementById("maartenBaan2") as HTMLInputElement,
+            this.shadowRoot?.getElementById("gaiaBaan") as HTMLInputElement,
+            this.shadowRoot?.getElementById("maartenDuo") as HTMLInputElement,
+            this.shadowRoot?.getElementById("gaiaDuo") as HTMLInputElement,
+            this.shadowRoot?.getElementById("zorgtoeslag") as HTMLInputElement
+        ];
+        
+
+        for (const inputElement of inputsIncome) {
+            inputElement.addEventListener("change", () => {
+                let totaleInkomsten: number = 0;
+                for (const e of inputsIncome) {
+                    totaleInkomsten += e.valueAsNumber || 0;
+                }
+
+                const outputTotaleInkomsten: HTMLElement | null | undefined = this.shadowRoot?.getElementById("outputTotaleInkomsten") as HTMLInputElement;
+                if (outputTotaleInkomsten) {
+                    outputTotaleInkomsten.innerHTML = `${totaleInkomsten}`;
+                }
+            });
+        }
     }
 
     private render(): void {
@@ -40,34 +64,34 @@ class AddFinanceComponent extends HTMLElement {
 
                                     <div class="grid-2 mb-3">
                                         <div class="form-group">
-                                            <label class="form-label" id="maartenBaan1">Baan 1 Maarten</label>
+                                            <label class="form-label">Baan 1 Maarten</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan1" class="form-input" placeholder="0.00"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label" id="maartenBaan2">Baan 2 Maarten</label>
+                                            <label class="form-label">Baan 2 Maarten</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="maartenBaan2" class="form-input" placeholder="0.00"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label" id="gaiaBaan">Baan Gaia</label>
+                                            <label class="form-label">Baan Gaia</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaBaan" class="form-input" placeholder="0.00"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label" id="maartenDuo">Duo Maarten</label>
+                                            <label class="form-label">Duo Maarten</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="maartenDuo" class="form-input" placeholder="0.00"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label" id="gaiaDuo">Duo Gaia</label>
+                                            <label class="form-label">Duo Gaia</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="gaiaDuo" class="form-input" placeholder="0.00"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label" id="zorgtoeslag">Zorgtoeslag</label>
+                                            <label class="form-label">Zorgtoeslag</label>
                                             <div class="input-group"><span class="addon">€</span><input type="number" id="zorgtoeslag" class="form-input" placeholder="0.00"></div>
                                         </div>
                                     </div>
 
                                     <div class="stat-card dim">
                                         <div class="stat-card__label">Totale Inkomsten</div>
-                                        <div class="stat-card__value" id="outputTotaleInkomsten">meow</div>
+                                        <div class="stat-card__value" id="outputTotaleInkomsten">0</div>
                                     </div>
                                 </section>
 
