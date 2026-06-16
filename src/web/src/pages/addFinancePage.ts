@@ -19,7 +19,7 @@ class AddFinanceComponent extends HTMLElement {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>HashimotoGoon</title>
                     <script src="/dist/index.js" defer></script>
-                    <link rel="stylesheet" href="/assets/css/addFinancePage.css">
+                    <link rel="stylesheet" href="/assets/addFinancePage.css">
                 </head>
                 <body>
                     <div class="page-wrapper">
