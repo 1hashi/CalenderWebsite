@@ -17,6 +17,18 @@ class AddFinanceComponent extends HTMLElement {
             this.shadowRoot?.getElementById("gaiaDuo") as HTMLInputElement,
             this.shadowRoot?.getElementById("zorgtoeslag") as HTMLInputElement
         ];
+
+        const inputsCosts: HTMLInputElement[] = [
+            this.shadowRoot?.getElementById("school") as HTMLInputElement,
+            this.shadowRoot?.getElementById("zorgverzekering") as HTMLInputElement,
+            this.shadowRoot?.getElementById("basicFit") as HTMLInputElement,
+            this.shadowRoot?.getElementById("anwb") as HTMLInputElement,
+            this.shadowRoot?.getElementById("discord") as HTMLInputElement,
+            this.shadowRoot?.getElementById("pathe") as HTMLInputElement,
+            this.shadowRoot?.getElementById("auto") as HTMLInputElement,
+            this.shadowRoot?.getElementById("spotify") as HTMLInputElement,
+            this.shadowRoot?.getElementById("wegenbelasting") as HTMLInputElement
+        ];
         
 
         for (const inputElement of inputsIncome) {
@@ -57,6 +69,19 @@ class AddFinanceComponent extends HTMLElement {
             });
         };
 
+        for (const inputElement of inputsCosts) {
+            inputElement.addEventListener("change", () => {
+                let totaleKosten: number = 0;
+                for (const e of inputsCosts) {
+                    totaleKosten += e.valueAsNumber || 0;
+                }
+
+                const outputTotaleKosten: HTMLElement | null | undefined = this.shadowRoot?.getElementById("outputTotaleKosten") as HTMLInputElement;
+                if (outputTotaleKosten) {
+                    outputTotaleKosten.innerHTML = `${totaleKosten}`;
+                }
+            });
+        };
 
         const savingGoalElement: HTMLInputElement = this.shadowRoot!.getElementById("spaarDoel") as HTMLInputElement;
         savingGoalElement.addEventListener("change", () => {
@@ -185,7 +210,7 @@ class AddFinanceComponent extends HTMLElement {
 
                                     <div class="stat-card rose">
                                         <div class="stat-card__label">Totale Kosten</div>
-                                        <div class="stat-card__value rose" id="outputTotaleKosten">€ 0,00</div>
+                                        <div class="stat-card__value rose" id="outputTotaleKosten">0</div>
                                     </div>
                                 </section>
                             </div>
