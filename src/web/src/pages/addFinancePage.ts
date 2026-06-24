@@ -1,6 +1,9 @@
 import { htmlArray } from "@web/helpers/webComponents";
 
 class AddFinanceComponent extends HTMLElement {
+    private savingGoal: number = 0;
+    private deadlineSaving: number = 0;
+
     public connectedCallback(): void {
         this.attachShadow({ mode: "open" });
 
@@ -28,7 +31,44 @@ class AddFinanceComponent extends HTMLElement {
                     outputTotaleInkomsten.innerHTML = `${totaleInkomsten}`;
                 }
             });
-        }
+        };
+
+        const inputsSaving: HTMLInputElement[] = [
+            this.shadowRoot?.getElementById("gaiaHuidig") as HTMLInputElement,
+            this.shadowRoot?.getElementById("maartenHuidig") as HTMLInputElement,
+            this.shadowRoot?.getElementById("gaiaSpaar") as HTMLInputElement,
+            this.shadowRoot?.getElementById("maartenSpaar") as HTMLInputElement,
+        ];
+
+        for (const inputElement of inputsSaving) {
+            inputElement.addEventListener("change", () => {
+                let totalSavings: number = 0;
+                for (const e of inputsSaving) {
+                    totalSavings += e.valueAsNumber || 0;
+                }
+
+                const whatIsLeftToSave: number = this.savingGoal - totalSavings;
+
+                const monthlySave: number = whatIsLeftToSave / this.deadlineSaving;
+
+                const outputSpaarPerMaandElement: HTMLElement = this.shadowRoot!.getElementById("outputSpaarPerMaand") as HTMLElement;
+
+                outputSpaarPerMaandElement.innerHTML = `${monthlySave}`;
+            });
+        };
+
+
+        const savingGoalElement: HTMLInputElement = this.shadowRoot!.getElementById("spaarDoel") as HTMLInputElement;
+        savingGoalElement.addEventListener("change", () => {
+            this.savingGoal = savingGoalElement.valueAsNumber;
+        });
+
+        const deadlineSavingElement: HTMLInputElement = this.shadowRoot!.getElementById("deadlineSpaarDoel") as HTMLInputElement;
+        deadlineSavingElement.addEventListener("change", () => {
+            this.deadlineSaving = deadlineSavingElement.valueAsNumber;
+        });
+
+
     }
 
     private render(): void {
@@ -157,28 +197,28 @@ class AddFinanceComponent extends HTMLElement {
 
                                 <div class="grid-2 mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="gaiaHuidig">Gaia Bankrekening..</label>
+                                        <label class="form-label" >Gaia Bankrekening..</label>
                                         <div class="input-group">
                                             <span class="addon">€</span>
                                             <input type="number" id="gaiaHuidig" class="form-input" placeholder="0.00">
                                         </div>
                                     </div>
                                     <div class="form=group">
-                                        <label class="form-label" for="maartenHuidig">Maarten Bankrekening</label>
+                                        <label class="form-label" >Maarten Bankrekening</label>
                                         <div class="input-group">
                                             <span class="addon">€</span>
                                             <input type="number" id="maartenHuidig" class="form-input" placeholder="0.00">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="gaiaSpaar">Gaia Spaarrekening</label>
+                                        <label class="form-label" >Gaia Spaarrekening</label>
                                         <div class="input-group">
                                             <span class="addon">€</span>
                                             <input type="number" id="gaiaSpaar" class="form-input" placeholder="0.00">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="maartenSpaar">Maarten Spaarrekening</label>
+                                        <label class="form-label" >Maarten Spaarrekening</label>
                                         <div class="input-group">
                                             <span class="addon">€</span>
                                             <input type="number" id="maartenSpaar" class="form-input" placeholder="0.00">
@@ -190,21 +230,21 @@ class AddFinanceComponent extends HTMLElement {
 
                                 <div class="grid-2">
                                     <div class="form-group">
-                                        <label class="form-label" for="spaarDoel">Spaardoel</label>
+                                        <label class="form-label" >Spaardoel</label>
                                         <div class="input-group">
                                             <span class="addon">€</span>
                                             <input type="number" id="spaarDoel" class="form-input" placeholder="0.00">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="deadlineSpaarDoel">Maanden tot doel</label>
+                                        <label class="form-label" >Maanden tot doel</label>
                                         <input type="number" id="deadlineSpaarDoel" class="form-input" placeholder="0">
                                     </div>
                                 </div>
 
                                 <div class="alert alert--jade mt-3">
                                     <!-- TODO nog ff berekening maken -->
-                                    <p class="mb-0">Spaar per maand: <strong id="outputSpaarPerMaand">...</strong></p>
+                                    <p class="mb-0">Spaar per maand: <strong id="outputSpaarPerMaand"></strong></p>
                                 </div>
                             </section>
                             </section>
